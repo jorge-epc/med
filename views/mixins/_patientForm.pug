@@ -1,0 +1,44 @@
+mixin patientForm(patient = {})
+  form.form(action=`/patients/create/${patient._id || ''}` method="POST")
+    h2= title
+    label(for="name") Nombre
+    input(type="text" name="name" required value=patient.name)
+    label(for="identification") Documento de identificación
+    input(type="text" name="identification" required value=patient.identification)
+    label(for="birth_date") Fecha de nacimiento
+    input(type="text" name="birth_date" value=patient.birth_date)
+    label(for="birth_place") Lugar de nacimiento
+    input(type="text" name="birth_place" value=patient.birth_place)
+    - const genders = ['Femenino', 'Masculino', 'Otro']
+    ul.tags
+      each gender in genders
+        .tag.tag__choice
+          input(type="radio" id=gender value=gender name="gender" checked=(patient.gender === gender))
+          label(for=gender) #{gender}
+    - const status = ['Soltero', 'Casado', 'Divorciado', 'Viudo']
+    ul.tags
+      each sta in status
+        .tag.tag__choice
+          input(type="radio" id=sta value=sta name="status" checked=(patient.status === sta))
+          label(for=sta) #{sta}
+    - const bloodTypes = ['O-', 'O+', 'A-', 'A+', 'B-', 'B+', 'AB-', 'AB+']
+    ul.tags
+      each bloodType in bloodTypes
+        .tag.tag__choice
+          input(type="radio" id=bloodType value=bloodType name="blood_type" checked=(patient.blood_type === bloodType))
+          label(for=bloodType) #{bloodType}
+    label(for="location[address]") Dirección
+    input(type="text" name="location[address]" required value=(patient.location && patient.location.address))
+    label(for="location[city]") Ciudad
+    input(type="text" name="location[city]" required value=(patient.location && patient.location.city))
+    label(for="phone") Teléfono
+    input(type="text" name="phone" value=patient.phone)
+    label(for="email") Email
+    input(type="email" name="email" value=patient.email)
+    label(for="job") Ocupación
+    input(type="text" name="job" value=patient.job)
+    label(for="pathological_record") Antecedentes patalógicos
+    textarea(name="pathological_record")= patient.pathological_record
+    label(for="family_pathological_record") Antecedentes patológicos familiares
+    textarea(name="family_pathological_record")= patient.family_pathological_record
+    input.button(type="submit" value="Guardar")

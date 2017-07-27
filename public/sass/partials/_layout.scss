@@ -3,12 +3,11 @@ html {
 }
 
 body {
-  background: $purple;
-  background:#efefef;
+  background: #efefef;
   &:before {
     content: '';
     display: block;
-    background: $grad;
+    background: $blue;
     height: 10px;
     width: 100%;
   }

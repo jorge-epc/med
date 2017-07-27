@@ -5,18 +5,21 @@
 // FS is a built in module to node that let's us read files from the system we're running on
 const fs = require('fs');
 
-// moment.js is a handy library for displaying dates. We need this in our templates to display things like "Posted 5 minutes ago"
-exports.moment = require('moment');
+// moment.js is a handy library for displaying dates.
+// We need this in our templates to display things like "Posted 5 minutes ago"
+const moment = require('moment');
+
+moment.locale('es');
+exports.moment = moment;
 
 // Dump is a handy debugging function we can use to sort of "console.log" our data
-exports.dump = (obj) => JSON.stringify(obj, null, 2);
+exports.dump = obj => JSON.stringify(obj, null, 2);
 
 // inserting an SVG
-exports.icon = (name) => fs.readFileSync(`./public/images/icons/${name}.svg`);
+exports.icon = name => fs.readFileSync(`./public/images/icons/${name}.svg`);
 
 // Some details about the site
-exports.siteName = `MEN-Boilerplate`;
+exports.siteName = 'MED';
 
 exports.menu = [
-  { slug: '/home', title: 'Home', icon: 'logo', },
 ];

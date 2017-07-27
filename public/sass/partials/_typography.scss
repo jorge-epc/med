@@ -4,16 +4,15 @@
          url('/fonts/panama-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 html {
-  font-size:10px;
+  font-size: 10px;
 }
 
 body {
-  font-size:1.5rem;
-  color:$black;
+  font-size: 1.5rem;
+  color: $grey;
 }
 
 h1, h2, h3, h4, h5, h6, {
@@ -29,7 +28,7 @@ a {
 }
 
 p a {
-  border-bottom: 2px solid $yellow;
+  border-bottom: 2px solid $blue;
 }
 
 p {
@@ -65,7 +64,7 @@ p {
   // inline link inside
   a {
     border-bottom: 0;
-    $yellowa: rgba($yellow,0.8);
+    $yellowa: rgba($blue,0.8);
     background-image: linear-gradient(to right, $yellowa 100%, $yellowa 50%);
   }
 }
@@ -73,6 +72,6 @@ p {
 .title--single {
   max-width: 600px;
   margin-top: -9rem;
-  font-size: 10rem;
+  font-size: 5rem;
   text-align: center;
 }

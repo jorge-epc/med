@@ -1,0 +1,74 @@
+extends layout
+
+block content
+  .single
+    .single__hero
+      h2.title.title--single
+        a(href=`/patients/${patient._id}`) #{patient.name}
+
+    .single__details.inner
+      p.single__location= h.moment(patient.birth_date, 'YYYYMMDD').fromNow()
+      p
+        strong Nombre:&nbsp;
+        = patient.name
+      p
+        strong Documento de identificación:&nbsp;
+        = patient.identification
+      p
+        strong Lugar de nacimiento:&nbsp;
+        = patient.birth_place
+      p
+        strong Género:&nbsp;
+        = patient.gender
+      p
+        strong Estado civil:&nbsp;
+        = patient.status
+      p
+        strong Tipo de sangre:&nbsp;
+        = patient.blood_type
+      p
+        strong Dirección:&nbsp;
+        = patient.location.address
+      p
+        strong Ciudad:&nbsp;
+        = patient.location.city
+      p
+        strong Teléfono:&nbsp;
+        = patient.phone
+      p
+        strong Email:&nbsp;
+        = patient.email
+      p
+        strong Ocupación:&nbsp;
+        = patient.job
+      p
+        strong Antecedentes patalógicos:&nbsp;
+        = patient.pathological_record
+      p
+        strong Antecedentes patológicos familiares:&nbsp;
+        = patient.family_pathological_record
+      p
+        strong Fecha de creación del paciente:&nbsp;
+        = h.moment(patient.created).format('DD.MM.YYYY')
+
+  .inner
+    a.abutton(href=`/patients/${patient._id}/appointments/create`) Crear consulta
+
+    if patient.appointments
+        table.table
+          thead
+            td #
+            td Fecha
+            td Motivo
+            td Ver
+            td Editar
+          each appointment, i in patient.appointments
+            tr
+              td #{i + 1}
+              td
+                a(href=`/patients/${patient._id}/appointments/${appointment._id}`) #{h.moment(appointment.created).format('DD.MM.YYYY h:mm:ss a')}
+              td= appointment.reason
+              td
+                a(href=`/patients/${patient._id}/appointments/${appointment._id}`) Ver
+              td
+                a(href=`/patients/${patient._id}/appointments/${appointment._id}/update`) Editar

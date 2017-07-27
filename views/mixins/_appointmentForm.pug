@@ -1,0 +1,18 @@
+mixin appointmentForm(patient, appointment = {})
+  form.form(action=`/patients/${patient}/appointments/create/${appointment._id || ''}` method="POST")
+    h2= title
+    label(for="reason") Motivo de la consulta
+    textarea(name="reason" required)= appointment.reason
+    label(for="exams") Examen físico
+    textarea(name="exams")= appointment.exams
+    label(for="vital_signs") Signos vitales
+    textarea(name="vital_signs")= appointment.vital_signs
+    label(for="diagnosis") Diagnóstico
+    textarea(name="diagnosis" required)= appointment.diagnosis
+    label(for="treatment") Tratamiento
+    textarea(name="treatment" required)= appointment.treatment
+    label(for="requested_exams") Exámenes solicitados
+    textarea(name="requested_exams")= appointment.requested_exams
+    label(for="requested_appointment") Interconsulta
+    textarea(name="requested_appointment")= appointment.requested_appointment
+    input.button(type="submit" value="Guardar")

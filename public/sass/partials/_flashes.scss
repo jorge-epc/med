@@ -34,7 +34,7 @@
     background: none;
     border:0;
     &:hover {
-      color: $yellow;
+      color: $blue;
     }
   }
   &:after {
@@ -51,13 +51,13 @@
     border-radius: 3px;
   }
   &--success {
-    background: linear-gradient(135deg, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
+    background: rgba(145,232,66,1);
   }
   &--error {
-    background: linear-gradient(20deg, rgba(255,0,0,1) 0%, rgba(200,0,0,1) 100%);
+    background: rgba(200,0,0,1);
   }
   &--info {
-    background: linear-gradient(35deg, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%);
+    background: rgba(254,182,69,1);
   }
   p {
     margin: 0;

@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  .single
+    .single__hero
+      h2.title.title--single
+        a(href=`/patients/${appointment.patient._id}`) #{appointment.patient.name}
+    .single__details.inner
+      p
+        strong Motivo de la consulta:&nbsp;
+        = appointment.reason
+      p
+        strong Examen físico:&nbsp;
+        = appointment.exams
+      p
+        strong Signos vitales:&nbsp;
+        = appointment.vital_signs
+      p
+        strong Diagnóstico:&nbsp;
+        = appointment.diagnosis
+      p
+        strong Tratamiento:&nbsp;
+        = appointment.treatment
+      p
+        strong Exámenes solicitados:&nbsp;
+        = appointment.requested_exams
+      p
+        strong Interconsulta:&nbsp;
+        = appointment.requested_appointment
+      p
+        strong Fecha de consulta:&nbsp;
+        = h.moment(appointment.created).format('DD.MM.YYYY')

@@ -1,0 +1,34 @@
+extends layout
+
+include mixins/_pagination
+
+block content
+  .inner
+    h2= title
+
+    .search
+      input.search__input(type="text" placeholder="Buscar..." name="search")
+      .search__results
+
+    a.abutton(href="/patients/create") Crear paciente
+
+    table.table
+      thead
+        td #
+        td Nombre
+        td ID
+        td Género
+        td Ver
+        td Editar
+      each patient, i in patients
+        tr
+          td #{i + 1}
+          td
+            a(href=`/patients/${patient._id}`) #{patient.name}
+          td= patient.identification
+          td= patient.gender
+          td
+            a(href=`/patients/${patient._id}`) Ver
+          td
+            a(href=`/patients/${patient._id}/update`) Editar
+    +pagination(page, pages, count)

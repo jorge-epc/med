@@ -1,0 +1,10 @@
+mixin pagination(page, pages, count)
+  .pagination
+    .pagination__prev
+      if page > 1
+        a(href=`/patients/page/${page - 1}`) Anterior
+    .pagination__text
+      span Página #{page} de #{pages} - #{count} resultados totales
+    .pagination__next
+      if page < pages
+        a(href=`/patients/page/${parseFloat(page) + 1}`) Siguiente

@@ -1,7 +1,7 @@
 .table {
   width: 100%;
   td {
-    padding: 5px;
+    padding: 10px;
   }
   tr:nth-child(even) {
     background: white;
@@ -10,7 +10,7 @@
     background: #f7f7f7;
   }
   thead tr {
-    background: $black;
+    background: $grey;
     color: white;
   }
 }

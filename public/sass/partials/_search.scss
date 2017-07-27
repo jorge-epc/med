@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   display: flex;
+  margin-bottom: 2rem;
   &__results {
     background: white;
     position: absolute;
@@ -13,8 +14,7 @@
   }
   &__input {
     font-size: 30px;
-    background: none;
-    color: white;
+    color: black;
     outline: 0;
     border: 0;
   }

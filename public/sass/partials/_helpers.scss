@@ -5,10 +5,22 @@
 
 .button {
   border: 0;
-  background: $yellow;
-  color: $black;
+  background: $blue;
+  color: white;
   font-family: 'Panama';
   font-weight: 600;
+}
+
+.abutton {
+  background: $blue;
+  border: none;
+  color: white;
+  padding: 2rem 5rem;
+  font-family: 'Panama';
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .avatar {
